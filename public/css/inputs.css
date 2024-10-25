@@ -1,0 +1,26 @@
+/* INPUT CON LABEL CRUZADO */
+.custom-input-group {
+    position: relative;
+    margin-top: 1.5rem;
+  }
+  .custom-input-group label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 0.85rem;
+    color: #000000;
+  }
+  .custom-input-group input {
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .custom-input-group input:focus {
+    border-color: #616161;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem #14295565;
+  }

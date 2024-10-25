@@ -1,0 +1,27 @@
+/* BOTON ROJO 100% */
+.btn-custom-red {
+    width: 100%;
+    background-color: #DF5766;
+    border: none;
+    border-radius: 4px;
+    padding: 9px;
+    color: #fff;
+    font-weight: 500;
+}
+.btn-custom-red:hover {
+    transition: 0.8s;
+    background-color: #f74f62;
+}
+
+/* BOTON CON BORDE DE LINEA*/
+.btn-custom-border {
+    background-color: transparent;
+    border: 1px solid #142955;
+    border-radius: 4px;
+    padding: 9px;
+    font-weight: 500;
+}
+.btn-custom-border:hover {
+    transition: 0.8s;
+    background-color: #e7e7e7;
+}
