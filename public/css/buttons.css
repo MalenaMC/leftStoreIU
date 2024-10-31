@@ -6,12 +6,20 @@
     border-radius: 4px;
     padding: 9px;
     color: #fff;
-    font-weight: 500;
+    font-weight: 600;
 }
 .btn-custom-red:hover {
     transition: 0.8s;
-    background-color: #f74f62;
+    border: 1px solid #f74f62;
+    background-color: transparent;
+    color: #f74f62;
 }
+.btn-custom-red:disabled {
+    background-color: #f17f8c;
+    border: none;
+    color: #fff;
+}
+
 
 /* BOTON CON BORDE DE LINEA*/
 .btn-custom-border {
@@ -24,4 +32,9 @@
 .btn-custom-border:hover {
     transition: 0.8s;
     background-color: #e7e7e7;
+}
+
+.btn-letters {
+    border: none;
+    background: transparent;
 }

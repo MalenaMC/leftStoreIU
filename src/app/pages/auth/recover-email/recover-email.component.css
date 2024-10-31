@@ -1,0 +1,15 @@
+.contain-form {
+    width: 60%;
+}
+
+@media (max-width: 768px) {
+    .contain-form {
+        width: 75%;
+    }
+}
+
+@media (max-width: 576px) {
+    .contain-form {
+        width: 90%;
+    }
+}

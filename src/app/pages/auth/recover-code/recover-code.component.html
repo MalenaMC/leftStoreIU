@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="contain-form">
+        <div class="mb-3">
+            <a routerLink="/auth/recover/email" class="text-decoration-none text-semibold-a"><i class="bi bi-chevron-left me-2"></i>Regresar</a>
+        </div>
+        <div class="mb-4">
+            <h1 class="title-nunito mb-3">Verificar código</h1>
+            <h5 class="subtitle-nunito">Se ha enviado un código de autenticación a su correo electrónico.</h5>
+        </div>
+        <form>
+            <div class="custom-input-group mb-2">
+                <label for="codigo" class="form-label">Ingresar código</label>
+                <input type="text" class="form-control" id="codigo" formControlName="correo">    
+            </div>
+            <p class="text-semibold m-0 p-0 mb-4">¿No recibiste un código? <button routerLink="/auth/register" class="btn-letters text-custom-red text-semibold">Reenviar</button></p>
+            <button class="btn-custom-red">Verificar</button>
+        </form>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 .auth-contain {
     height: calc( 100vh - 10rem);
+    padding: 2rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;

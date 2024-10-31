@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center justify-content-center">
+    <div class="contain-form">
+        <div class="mb-3">
+            <a routerLink="/auth/login" class="text-decoration-none text-semibold-a"><i class="bi bi-chevron-left me-2"></i>Regresar</a>
+        </div>
+        <div class="mb-4">
+            <h1 class="title-nunito mb-3">¿Olvidaste tu contraseña?</h1>
+            <h5 class="subtitle-nunito">No te preocupes, nos pasa a todos. Ingrese su correo electrónico a continuación para recuperar su contraseña.</h5>
+        </div>
+        <form [formGroup]="formRecover" (ngSubmit)="recover()">
+            <div class="custom-input-group mb-4">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <input type="text" class="form-control" id="correo" formControlName="correo">
+                <span class="text-span-bold-small" [hidden]="formRecover.get('correo')?.valid || formRecover.get('correo')?.untouched">* Debes colocar un email válido.</span>  
+            </div>
+            <button class="btn-custom-red" [disabled]="formRecover.invalid">Enviar código</button>
+        </form>
+    </div>
+</div>
