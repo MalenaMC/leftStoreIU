@@ -44,6 +44,9 @@ export class LoginComponent {
         else if (err.status === 403) {
           this.notifycation.error('Contraseña incorrecta. Verifique sus credenciales.', 'Error',);
         }
+        else if (err.status === 401) {
+          this.notifycation.error('Error de autorización.', 'Error',);
+        }
         else {
           this.notifycation.error(err.message, 'Error',);
         }

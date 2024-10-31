@@ -6,10 +6,18 @@
     background-color: #DF5766;
 }
 
+.bg-custom-yellow {
+    background-color: #f59a31;
+}
+
 .text-custom-red {
     color: #DF5766;
 }
 
 .text-custom-blue {
     color: #142955;
+}
+
+.text-custom-blue-soft {
+    color: #5b6988;
 }
