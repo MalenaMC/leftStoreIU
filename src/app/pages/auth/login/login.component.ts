@@ -35,12 +35,15 @@ export class LoginComponent {
       next: (value: any) => {
         this.notifycation.success(`${value.message}, ${value.nombre} ${value.apellido_paterno}.`, 'Éxito')
         this.formLogin.reset();
-        this.router.navigateByUrl('/pages/home');
+        this.router.navigateByUrl('/dashboard/home');
       },
       error: (err) => {
         if (err.status === 404) {
-          this.notifycation.error('Credenciales incorrectas.', 'Error',);
-        } 
+          this.notifycation.error('Usuario no encontrado.', 'Error',);
+        }
+        else if (err.status === 403) {
+          this.notifycation.error('Contraseña incorrecta. Verifique sus credenciales.', 'Error',);
+        }
         else {
           this.notifycation.error(err.message, 'Error',);
         }

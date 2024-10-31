@@ -7,12 +7,14 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { authRoutes } from './pages/auth/auth.routes';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { dashboardRoutes } from './pages/dashboard/dashboard.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideRouter(authRoutes),
+    provideRouter(dashboardRoutes),
     provideClientHydration(),
     provideAnimations(), // required animations providers
     provideToastr(), // Toastr providers
