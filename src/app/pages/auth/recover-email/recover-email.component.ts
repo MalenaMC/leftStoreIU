@@ -35,15 +35,10 @@ export class RecoverEmailComponent {
         console.log(value),
         this.notifycation.success(`${value.message}`, 'Éxito')
         this.formRecover.reset();
-        this.router.navigateByUrl('/auth/recover/code');
+        this.router.navigateByUrl('/auth/login');
       },
-      error: (err) => {
-        if (err.status === 404) {
-          this.notifycation.error('Correo no encontrado.', 'Error',);
-        }
-        else {
-          this.notifycation.error(err.message, 'Error',)
-        }
+      error: (error: Error) => {
+        this.notifycation.error(error.message, 'Error');
       }
     })
   }

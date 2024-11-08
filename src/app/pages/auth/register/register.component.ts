@@ -47,10 +47,9 @@ export class RegisterComponent {
         this.formRegister.reset();
         this.router.navigateByUrl('/auth/login');
       },
-      error: (err) => {
-        this.notifycation.error(err.message, 'Error');
+      error: (error: Error) => {
+        this.notifycation.error(error.message, 'Error');
       }
     })
-
   }
 }

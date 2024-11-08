@@ -37,19 +37,8 @@ export class LoginComponent {
         this.formLogin.reset();
         this.router.navigateByUrl('/dashboard/home');
       },
-      error: (err) => {
-        if (err.status === 404) {
-          this.notifycation.error('Usuario no encontrado.', 'Error',);
-        }
-        else if (err.status === 403) {
-          this.notifycation.error('Contraseña incorrecta. Verifique sus credenciales.', 'Error',);
-        }
-        else if (err.status === 401) {
-          this.notifycation.error('Error de autorización.', 'Error',);
-        }
-        else {
-          this.notifycation.error(err.message, 'Error',);
-        }
+      error: (error: Error) => {
+          this.notifycation.error(error.message, 'Error');
       }
     })
   }
