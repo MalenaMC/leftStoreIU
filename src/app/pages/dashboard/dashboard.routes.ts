@@ -5,7 +5,7 @@ import { ProductsComponent } from "./products/products.component";
 
 export const dashboardRoutes: Routes = [
     {
-        path: 'dashboard',
+        path: 'pages',
         component: DashboardComponent,
         children: [
             {

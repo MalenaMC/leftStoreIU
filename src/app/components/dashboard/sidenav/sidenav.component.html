@@ -1,1 +1,31 @@
-<p>sidenav works!</p>
+<main>
+    <div class="sidenav-fondo sidenav" [ngClass]="sidenavService.collapsed ? 'sidenav-collapsed':''">
+      <div class="logo-container">
+        <a [routerLink]="['home']" class="logo"><div class="icon-sm"></div></a>
+        <div class="logo-text" *ngIf="sidenavService.collapsed">Veterinaria</div>
+        <button class="btn-close btn-close-white" *ngIf="sidenavService.collapsed" (click)="closeSidenav()">
+          <i class="fal fa-times close-icon"></i>      
+        </button>
+      </div>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let item of list">
+          <a class="sidenav-nav-link" [routerLink]="[item.ruta]"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}"
+          >
+            <i class="sidenav-link-icon" [class]="item.icon"></i>
+            <span class="sidenav-link-text" *ngIf="sidenavService.collapsed">{{item.name}} </span>
+          </a>
+        </li>
+        <div class="logout">
+          <li class="sidenav-nav-item">
+            <div class="bordeuwu"></div>
+            <a class="my-2 sidenav-nav-link" [routerLink]="">
+              <i class="sidenav-link-icon icon-salir"></i>
+              <span class="sidenav-link-text" *ngIf="sidenavService.collapsed"> Salir </span>
+            </a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </main>
