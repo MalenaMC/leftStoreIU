@@ -1,17 +1,20 @@
-.footer-custom {
+.body {
     width: calc(100% - 5rem);
-    height: 4rem;
+    height: 100%;
     margin-left: 5rem;
     z-index: 0;
+    margin-top: 4rem;
     transition: all .5s ease;
+    padding: 3rem 5rem;
+    background-color: #eaf2f9;
 }
 
-.footer-custom-trimmed {
+.body-trimmed {
     width: calc(100% - 16rem);
     margin-left: 16rem;
 }
 
-.footer-custom-md-screen {
+.body-md-screen {
     width: calc(100% - 5rem);
     margin-left: 5rem;
 }

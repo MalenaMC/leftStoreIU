@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { TableComponent } from '../../../components/dashboard/table/table.component';
 import { ISeccion } from '../../../utility/secciones.type';
+import { ModalCrearProductoComponent } from "./modal-crear-producto/modal-crear-producto.component";
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [TableComponent],
+  imports: [TableComponent, ModalCrearProductoComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })

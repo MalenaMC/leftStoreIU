@@ -1,0 +1,22 @@
+<ng-template #modalCrear let-modal>
+	<div class="modal-header px-4 pt-4">
+		<h5 class="modal-title fs-3" i18n>Agregar Producto</h5>
+        <button
+        type="button"
+        class="btn-close shadow-none"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click');"
+        ></button>
+    </div>
+	<div class="modal-body px-4 py-3">
+        
+        <div class="d-flex justify-content-center align-items-center my-2">
+            <button
+            class="btn btn-purple mx-2"
+            i18n
+            >
+                Agregar
+            </button>
+        </div>
+	</div>
+</ng-template>

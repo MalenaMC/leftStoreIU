@@ -1,52 +1,51 @@
-import { Component } from '@angular/core';
-import { SidenavService } from '../dashboard.service';
+import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { navbarData } from './nav-data';
+import { CommonModule } from '@angular/common';
+
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, CommonModule, RouterLinkActive],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.css'
 })
-export class SidenavComponent {
-  list = [
-    {
-      ruta: 'home',
-      name: 'Inicio',
-      icon: 'icon-inicio'
-    },
-    {
-      ruta: 'internments',
-      name: 'Internamiento',
-      icon: 'icon-internamiento'
-    },
-    {
-      ruta: 'customers',
-      name: 'Clientes',
-      icon: 'icon-cliente'
-    },
-    {
-      ruta: 'pets',
-      name: 'Mascotas',
-      icon: 'icon-mascota'
-    },
-    
-    {
-      ruta: 'diary',
-      name: 'Agenda',
-      icon: 'icon-agenda'
-    },
-    {
-      ruta: 'reports',
-      name: 'Reportes',
-      icon: 'icon-reporte'
-    }
-  ]
+export class SidenavComponent implements OnInit {
 
-  constructor(public sidenavService: SidenavService) {}
+  @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
+
+  collapsed = false;
+  screenWidth = 0;
+  navData = navbarData;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = window.innerWidth;
+    if(this.screenWidth <= 768) {
+      this.collapsed = false;
+      this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth})
+    }
+  }
+
+  ngOnInit(): void {
+    if (typeof window !== 'undefined') {
+      this.screenWidth = window.innerWidth;
+    }
+  }
+  
+
+  toggleCollapse(): void {
+    this.collapsed = !this.collapsed;
+    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth})
+  }
 
   closeSidenav(): void {
-    this.sidenavService.setCollapsed(false);
-    this.sidenavService.onToggleSideNav.emit({collapsed : this.sidenavService.collapsed, screenWidth: this.sidenavService.screenWidth});
+    this.collapsed = false
+    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth})
   }
 }

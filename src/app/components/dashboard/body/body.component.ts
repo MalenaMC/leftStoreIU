@@ -1,25 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-body',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  imports: [RouterOutlet, CommonModule],
+  templateUrl: './body.component.html',
+  styleUrl: './body.component.css'
 })
-export class FooterComponent {
+export class BodyComponent {
+
   @Input() collapsed = false;
   @Input() screenWidth = 0;
   
-  getFooterClass(): string {
+  getBodyClass(): string {
     let styleClass = '';
     if(this.collapsed && this.screenWidth > 768) {
-      styleClass = 'footer-custom-trimmed';
+      styleClass = 'body-trimmed';
     } else if (this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0) {
-      styleClass = 'footer-custom-md-screen'
+      styleClass = 'body-md-screen'
     }
     return styleClass;
   }
-
 }

@@ -1,0 +1,8 @@
+.icon-single-white {
+    background-image: url('../img/icons/icon-single-white.svg');
+    background-size: contain; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que se repita */
+    height: 2.3rem; /* Altura del contenedor */
+    width: 2.3rem; /* Ancho del contenedor */
+}
