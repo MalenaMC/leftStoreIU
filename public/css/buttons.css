@@ -41,6 +41,27 @@
     color: #fff;
 }
 
+/* BOTON ROJO ADAPTADO AL CONTENIDO */
+.btn-custom-blue {
+    background-color: #325fb5;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 2.5rem;
+    color: #fff;
+    font-weight: 600;
+}
+.btn-custom-blue:hover {
+    transition: 0.8s;
+    border: 1px solid #325fb5;
+    background-color: transparent;
+    color: #325fb5;
+}
+.btn-custom-blue:disabled {
+    background-color: #6287cb;
+    border: none;
+    color: #fff;
+}
+
 
 /* BOTON CON BORDE DE LINEA*/
 .btn-custom-border {
