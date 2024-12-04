@@ -9,7 +9,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './table.component.css'
 })
 export class TableComponent {
-  @Input() columns: string[] = [];
+	@Input() accionEditar!: (row: any) => void;
+	@Input() accionEliminar!: (row: any) => void;
+
+ 	@Input() columns: string[] = [];
 	//#region originalRows
 	private _originalRows: any[] = [];
 	@Input()

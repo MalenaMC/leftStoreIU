@@ -1,0 +1,23 @@
+<ng-template #modalEliminar let-modal>
+    <div class="modal-header px-4 pt-4">
+      <h5 class="modal-title fs-3" i18n>Eliminar Producto</h5>
+      <button
+      type="button"
+      class="btn-close shadow-none"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click');"
+      ></button>
+    </div>
+    <div class="modal-body px-4 py-4 text-center">
+        <h6 class="mb-4">¿Estás seguro de que deseas eliminar este producto?</h6>
+        <form>
+            <div class="d-flex justify-content-center align-items-center gap-3 my-2">
+                <button type="button" class="btn-custom-red" (click)="modal.dismiss()">Cancelar</button>
+                <button type="button" class="btn-custom-blue" (click)="deleteProduct()">
+                    Eliminar
+                </button>
+            </div>
+        </form>
+    </div>
+  </ng-template>
+  

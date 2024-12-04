@@ -1,0 +1,144 @@
+<app-dashboard-subtitle
+icon_title="fi fi-rr-point-of-sale-bill"
+title="Ventas Directas"
+/>
+<div class="row">
+    <div class="col-12 mb-4 col-lg-5 mb-lg-0 col-xl-4">
+        <div class="card rounded-4 p-3 border border-0">
+            <div class="card-body">
+                <div class="mb-3">
+                    <h6 class="fw-bold">Consultar precio de un producto</h6>
+                    <div class="d-flex justify-content-between">
+                        <div class="search-container w-100 me-3">
+                            <div class="position-relative">
+                                <div class="position-absolute top-50 translate-middle-y px-3"><i class="text-secondary bi bi-search"></i></div>
+                                <input  class="input-search ps-5" type="text" placeholder="Buscar producto...">
+                            </div>
+                        </div>
+                        <button class="btn-custom-red">
+                            <i class="fi fi-rr-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="linea mb-3"></div>
+                <div class="d-flex justify-content-between align-items-center bg-custom-blue-soft rounded-4 py-2 px-4">
+                    <img class="img-price" src="https://pngimg.com/d/computer_mouse_PNG7672.png" alt="">
+                    <span class="text-secondary fs-5">Mouse RedDragon</span>
+                    <span class="fw-bold">S/. 64.50</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-7 col-xl-8">
+        <div class="card rounded-4 border border-0 p-3">
+            <div class="card-body">
+                <div class="mb-3">
+                    <h4 class="fw-bold">Registrar venta directa</h4>
+                    <div class="row d-flex align-items-center">
+                        <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-2 text-center">
+                            <label for="codigoInput" class="form-label">Producto</label>
+                            <div class="search-container w-100 me-3 ">
+                                <div class="position-relative">
+                                    <div class="position-absolute top-50 translate-middle-y px-3"><i class="text-secondary bi bi-search"></i></div>
+                                    <input
+                                    class="input-search bg-custom-blue-soft ps-5"
+                                    type="text"
+                                    placeholder="Añadir código de producto...">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 col-lg-12 col-xl-3 mb-3 text-center">
+                            <label for="cantidadInput" class="form-label">Cantidad</label>
+                            <input
+                              type="number"
+                              id="cantidadInput"
+                              class="form-control rounded-pill bg-light input-basic-pages"
+                              formControlName="cantidad"
+                            />
+                        </div>
+                        <div class="col-12 col-md-3 col-lg-12 col-xl-3 text-center">
+                            <button class="btn-custom-yellow ">Agregar</button>
+                        </div>
+                    </div>      
+                </div>
+                <div class="linea mb-3"></div>
+                <div class="table-responsive">
+                    <table class="w-100 table-responsive">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio/u</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Manzana</td>
+                                <td>20</td>
+                                <td>1.5</td>
+                                <td>21.5</td>
+                                <td class="text-center">
+                                    <button class="btn-icon">
+                                        <i class="fi fi-rr-circle-xmark"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td>Sub-Total</td>
+                                <td></td>
+                                <td></td>
+                                <td>2119.80</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>IGV(18%)</td>
+                                <td></td>
+                                <td></td>
+                                <td>381.42</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="fs-5">TOTAL</td>
+                                <td></td>
+                                <td></td>
+                                <td class="fs-5">2500.42</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="linea mb-3"></div>
+                <div class="row text-center mt-3">
+                    <div class="col-12 mb-3 col-md-6">
+                        <button class="btn-custom-red mx-1">
+                            CANCELAR TODO
+                        </button>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <button class="btn-custom-blue mx-1">
+                            REGISTRAR
+                        </button>
+                    </div>
+                </div>
+                <div class="linea mb-3"></div>
+                <div class="d-flex mb-2">
+                    <span class="fw-bold">Saldo del cliente</span>
+                    <input type="number" class="ms-auto input-basic-pages w-25">
+                </div>
+                <div class="d-flex">
+                    <span class="fw-bold">Vuelto</span>
+                    <span class="ms-auto fw-bold">0.10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

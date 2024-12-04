@@ -1,6 +1,6 @@
 .sidenav {
     background: #fff;
-    transition: all .5s ease;
+    transition: all .2s ease;
     position: fixed;
     z-index: 1;
     top: 4rem;
@@ -87,8 +87,9 @@
             }
 
             .sidenav-link-text {
-                margin-left: 2.7rem;
-                font-size: 20px;
+                font-style: normal;
+                margin-left: 1.5rem;
+                font-size: 17px;
                 font-weight: 600;
             }
         }

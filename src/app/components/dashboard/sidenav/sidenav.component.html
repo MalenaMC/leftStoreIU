@@ -17,13 +17,12 @@
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}"
         >
-          <i class="sidenav-link-icon" [class]="data.icon">
+          <i class="sidenav-link-icon" [class]="data.icon"></i>
             @if (collapsed) {
               <span class="sidenav-link-text"> {{data.name}} </span>
             }
-          </i>
         </a>
-      </li>
-    }
-  </ul>
+      }
+    </ul>
+    />
 </div>

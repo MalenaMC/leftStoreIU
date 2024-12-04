@@ -1,11 +1,11 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { catchError, throwError } from "rxjs";
+import { catchError, Observable, throwError } from "rxjs";
 
 export interface DataProduct {
+    id?: number;
 	nombre: string;
     categoriaId: string;
-    proveedorId: string;
     modelo: string;
 	precio: number;
 	descripcion: string;
@@ -14,16 +14,17 @@ export interface DataProduct {
 }
 
 export interface DataProductAll {
-    codigo: string,
+    id: number;
+    codigo: string;
     nombre: string;
-    categoriaId: string;
-    proveedorId: string;
+    categoria: string;
     modelo: string;
-	precio: number;
-	descripcion: string;
+    precio: number;
+    descripcion: string;
     img: string;
-    estado: boolean
+    estado: boolean;
 }
+
 
 @Injectable({
     providedIn: 'root'
@@ -72,23 +73,23 @@ export class ProductService {
     }
 
     // Obtener un producto por su código
-    getProductByCode(codigo: string) {
+    getProductById(id: number) {
         return this.httpService
-            .get<DataProduct>(this.product_end_point + `/routes_product/get_product/${codigo}`)
-            .pipe(catchError(this.handleError));
-    }
+          .get<DataProduct>(`${this.product_end_point}/routes_product/get_product/${id}`)
+          .pipe(catchError(this.handleError));
+      }
 
     // Actualizar un producto
-    updateProduct(codigo: string, data: Partial<DataProduct>) {
+    updateProduct(id: number, data: DataProduct) {
         return this.httpService
-            .put(this.product_end_point + `/routes_product/update_product/${codigo}`, { ...data })
-            .pipe(catchError(this.handleError));
+        .put(`${this.product_end_point}/routes_product/update/${id}`, { ...data })
+        .pipe(catchError(this.handleError));
     }
 
     // Eliminar un producto
-    deleteProduct(codigo: string) {
+    deleteProduct(id: string) {
         return this.httpService
-            .delete(this.product_end_point + `/routes_product/delete_product/${codigo}`)
+            .delete(`${this.product_end_point}/routes_product/delete/${id}`)
             .pipe(catchError(this.handleError));
     }
 }

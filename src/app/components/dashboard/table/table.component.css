@@ -1,50 +1,20 @@
-.btn-active, .btn-inactive{
+.active, .inactive{
     border: none;
     border-radius: 2rem;
     color: #ffffff;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
 }
 
-.btn-active{
+.active{
     background-color: #00B69B;
 }
 
-.btn-active:hover{
-    filter: brightness(80%);
-    transition: 0.5s;
-}
-
-.btn-inactive{
+.inactive{
     background-color: #FCBE2D;
 }
-
-.btn-inactive:hover{
-    filter: brightness(80%);
-    transition: 0.5s;
-}
-
-.custom-btn-group{
-    background-color: #FAFBFD;
-    border-radius: 0.5rem;
-    border: 1px solid #D5D5D5;
-}
-.btn-individual-r, .btn-individual-l {
-    border-radius: 0;
-    border: none;
-    outline: none;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-}
-.btn-individual-r {
-    border-right: 0.5px solid #D5D5D5; /* Borde derecho verde */
-}
-.btn-individual-l {
-    border-left: 0.5px solid #D5D5D5; /* Borde derecho verde */
-}
-
 
 .table th, .table td{
     text-align: center;
@@ -56,6 +26,8 @@
   }
 /* Estilo para el fondo del encabezado */
 .table th {
+    font-size: 15px;
+    font-weight: 600;
     border-bottom: none;
     background-color: #F1F4F9;
     padding-top: 1rem;
@@ -73,6 +45,9 @@
     border-bottom-right-radius: 0.75rem;
 }
 
+.table td {
+    font-size: 16px;
+}
 
 /*Paginado*/
 .btn-pagination {

@@ -41,7 +41,7 @@
     color: #fff;
 }
 
-/* BOTON ROJO ADAPTADO AL CONTENIDO */
+/* BOTON AZUL ADAPTADO AL CONTENIDO */
 .btn-custom-blue {
     background-color: #325fb5;
     border: none;
@@ -87,4 +87,57 @@
     font-weight: 700;
     padding: 0.3rem 0.8rem;
     border: none;
+}
+
+.btn-bg-yellow {
+    color: #fff !important;
+    border: 1px solid #ffffff !important;
+    background: #F59A31 !important;
+}
+.btn-bg-yellow:hover {
+    background: #d37a14 !important;
+    border: 1px solid #d37a14 !important;
+}
+
+/* BOTON AMARILLO*/
+.btn-custom-yellow {
+    background-color: #F59A31;
+    border: none;
+    border-radius: 1.2rem;
+    padding: 0.4rem 2.5rem;
+    color: #fff;
+    font-weight: 600;
+}
+.btn-custom-yellow:hover {
+    transition: 0.8s;
+    background-color: #df7e0f;
+    color: #ffffff;
+}
+.btn-custom-yellow:disabled {
+    background-color: #c78436;
+    border: none;
+    color: #fff;
+}
+
+/* BOTON PARA ICONOS (NO STYLE)*/
+.btn-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    padding-top: 0.7rem;
+}
+
+.btn-icon:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-icon i {
+    font-size: 27px;
+    color: #EC6E61;
 }

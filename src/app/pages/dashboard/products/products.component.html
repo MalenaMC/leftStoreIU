@@ -1,12 +1,13 @@
-<div class="title-container mb-4">
-    <h2 class="title-nunito text-custom-blue">Productos</h2>
-</div>
-<div class="row d-flex align-items-center justify-content-center pb-5">
+<app-dashboard-title
+icon_title="fi fi-rr-boxes"
+title="Productos"
+/>
+<div class="row d-flex align-items-center justify-content-center mb-0 mb-lg-4">
     <div class="col-12 col-lg-6 py-lg-0">
         <div class="search-container">
             <div class="position-relative">
                 <div class="position-absolute top-50 translate-middle-y px-3"><i class="text-secondary bi bi-search"></i></div>
-                <input (input)="applyFilter($event)" class="input-search ps-5" type="text" placeholder="Buscar por nombre">
+                <input (input)="applyFilter($event)" class="input-search ps-5" type="text" placeholder="Buscar producto...">
             </div>
         </div>
     </div>
@@ -17,7 +18,7 @@
     </button>
     </div>
 </div>
-<div class="card rounded-5 border border-0">
+<div class="card rounded-4 border border-0">
     <div class="card-body">
         <app-table
             #tableProducts
@@ -25,10 +26,23 @@
             [originalRows]="rows"
             [columnMappings]="columnMappings"
             [pageSize]="10"
+            [accionEditar]="openModalEditar.bind(this)"
+            [accionEliminar]="openModalEliminar.bind(this)"
         />
     </div>
 </div>
 
 <app-modal-crear-producto
     #modalCrear
+    (productCreated)="onProductCreatedOrEditedOrDeleted()"
+/>
+
+<app-modal-editar-producto
+    #modalEditar
+    (productUpdated)="onProductCreatedOrEditedOrDeleted()"
+/>
+
+<app-modal-eliminar-producto
+    #modalEliminar
+    (productDeleted)="onProductCreatedOrEditedOrDeleted()"
 />

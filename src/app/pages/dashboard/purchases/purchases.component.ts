@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { DashboardTitleComponent } from '../../../components/dashboard/shared-components/dashboard-title/dashboard-title.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-purchases',
   standalone: true,
   imports: [DashboardTitleComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './purchases.component.html',
+  styleUrl: './purchases.component.css'
 })
-export class HomeComponent {
+export class PurchasesComponent {
 
 }

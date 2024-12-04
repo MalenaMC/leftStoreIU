@@ -42,10 +42,9 @@ export class RegisterComponent {
       contrasena: this.formRegister.get('contrasena')?.value ?? '',   
     }).subscribe({
       next: (value: any) => {
-        console.log(value),
         this.notifycation.success(`${value.message}, ${value.nombre} ${value.apellido_paterno}, ahora, inicie sesión.`, 'Éxito');
-        this.formRegister.reset();
         this.router.navigateByUrl('/auth/login');
+        this.formRegister.reset({});
       },
       error: (error: Error) => {
         this.notifycation.error(error.message, 'Error');

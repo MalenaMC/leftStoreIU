@@ -1,0 +1,102 @@
+<ng-template #modalEditar let-modal>
+    <div class="modal-header px-4 pt-4">
+      <h5 class="modal-title fs-3" i18n>Editar Producto</h5>
+      <button
+        type="button"
+        class="btn-close shadow-none"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click');"
+      ></button>
+    </div>
+    <div class="modal-body px-4 py-4">
+      <form [formGroup]="formEditProduct" (ngSubmit)="updateProduct()">
+        <div class="mb-3">
+          <label for="codigoInput" class="form-label fw-bold">Nombre del producto:</label>
+          <input
+            type="text"
+            id="codigoInput"
+            class="form-control rounded-pill bg-light input-basic-100"
+            formControlName="nombre"
+          />
+        </div>
+        <div class="mb-3">
+            <label for="estadoSelect" class="form-label fw-bold">Establecer nuevo estado:</label>
+            <select
+                id="estadoSelect"
+                class="form-select rounded-pill bg-light input-basic-100"
+                formControlName="estado"
+            >
+                <option value="" disabled selected>Selecciona un estado</option>
+                
+                @for (estado of estados; track estado.id) {
+                  <option [value]="estado.value"> {{estado.estado}} </option>
+                }
+            </select>
+        </div>
+        <div class="mb-3">
+          <label for="categoriaSelect" class="form-label fw-bold">Categoría:</label>
+          <select
+            id="categoriaSelect"
+            class="form-select rounded-pill bg-light input-basic-100"
+            formControlName="categoria"
+            [compareWith]="compareById"
+          >
+          <option value="" disabled>Selecciona una categoría</option>
+          @for (categoria of categorias; track categoria.id) {
+            <option [ngValue]="categoria.id">{{ categoria.descripcion }}</option>
+          }
+          </select>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="modeloInput" class="form-label fw-bold">Modelo:</label>
+              <input
+                type="text"
+                id="modeloInput"
+                class="form-control rounded-pill bg-light input-basic-100"
+                formControlName="modelo"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="mb-3">
+              <label for="precioInput" class="form-label fw-bold">Precio:</label>
+              <input
+                type="number"
+                id="precioInput"
+                class="form-control rounded-pill bg-light input-basic-100"
+                formControlName="precio"
+                placeholder="S/."
+              />
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="descripcionInput" class="form-label fw-bold">Descripción:</label>
+          <textarea
+            id="descripcionInput"
+            class="form-control rounded-4 bg-light input-basic-100"
+            rows="2"
+            formControlName="descripcion"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="imagenInput" class="form-label fw-bold">Imagen del producto:</label>
+          <input
+            type="file"
+            id="imagenInput"
+            class="form-control rounded-pill bg-light input-basic-100"
+            formControlName="imagen"
+          />
+        </div>
+        <div class="d-flex justify-content-center align-items-center gap-3 my-2">
+          <button type="button" class="btn-custom-red" (click)="modal.dismiss()">Cancelar</button>
+          <button type="submit" class="btn-custom-blue" [disabled]="formEditProduct.invalid">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  

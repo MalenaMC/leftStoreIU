@@ -1,99 +1,87 @@
 <ng-template #modalCrear let-modal>
-    <div class="modal-header px-4 pt-4">
-      <h5 class="modal-title fs-3" i18n>Agregar Producto</h5>
-      <button
-        type="button"
-        class="btn-close shadow-none"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click');"
-      ></button>
-    </div>
-    <div class="modal-body px-4 py-4">
-        <form [formGroup]="formCreateProduct" (ngSubmit)="createProduct()">
-          <div class="mb-3">
-            <label for="codigoInput" class="form-label fw-bold">Nombre del producto:</label>
-            <input
-              type="text"
-              id="codigoInput"
-              class="form-control rounded-pill bg-light input-basic-100"
-              formControlName="nombre"
-            />
-          </div>
+  <div class="modal-header px-4 pt-4">
+    <h5 class="modal-title fs-3" i18n>Agregar Producto</h5>
+    <button
+      type="button"
+      class="btn-close shadow-none"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click');"
+    ></button>
+  </div>
+  <div class="modal-body px-4 py-4">
+      <form [formGroup]="formCreateProduct" (ngSubmit)="createProduct()">
         <div class="mb-3">
-            <label for="categoriaSelect" class="form-label fw-bold">Categoría:</label>
-            <select
-                id="categoriaSelect"
-                class="form-select rounded-pill bg-light input-basic-100"
-                formControlName="categoria"
-            >
-                <option value="" disabled selected>Selecciona una categoría</option>
-                <option value="1">Categoría 1</option>
-                <option value="2">Categoría 2</option>
-                <option value="3">Categoría 3</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="proveedorSelect" class="form-label fw-bold">Proveedor:</label>
-            <select
-                id="proveedorSelect"
-                class="form-select rounded-pill bg-light input-basic-100"
-                formControlName="proveedor"
-            >
-                <option value="" disabled selected>Selecciona una proveedor</option>
-                <option value="1">Proveedor 1</option>
-                <option value="2">Proveedor 2</option>
-                <option value="3">Proveedor 3</option>
-            </select>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="mb-3">
-              <label for="modeloInput" class="form-label fw-bold">Modelo:</label>
-              <input
-                type="text"
-                id="modeloInput"
-                class="form-control rounded-pill bg-light input-basic-100"
-                formControlName="modelo"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <div class="mb-3">
-              <label for="precioInput" class="form-label fw-bold">Precio:</label>
-              <input
-                type="number"
-                id="precioInput"
-                class="form-control rounded-pill bg-light input-basic-100"
-                formControlName="precio"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="descripcionInput" class="form-label fw-bold">Descripción:</label>
-          <textarea
-            id="descripcionInput"
-            class="form-control rounded-4 bg-light input-basic-100"
-            rows="3"
-            formControlName="descripcion"
-          ></textarea>
-        </div>
-        <div class="mb-3">
-          <label for="imagenInput" class="form-label fw-bold">Imagen del producto:</label>
+          <label for="codigoInput" class="form-label fw-bold">Nombre del producto:</label>
           <input
-            type="file"
-            id="imagenInput"
+            type="text"
+            id="codigoInput"
             class="form-control rounded-pill bg-light input-basic-100"
-            formControlName="imagen"
+            formControlName="nombre"
           />
         </div>
-        <div class="d-flex justify-content-center align-items-center gap-3 my-2">
-          <button type="button" class="btn-custom-red" (click)="modal.dismiss()">Cancelar</button>
-          <button type="submit" class="btn-custom-blue" [disabled]="formCreateProduct.invalid">
-            Guardar
-          </button>
+      <div class="mb-3">
+          <label for="categoriaSelect" class="form-label fw-bold">Categoría:</label>
+          <select
+              id="categoriaSelect"
+              class="form-select rounded-pill bg-light input-basic-100"
+              formControlName="categoria"
+          >
+              <option value="" disabled selected>Selecciona una categoría</option>
+              @for (categoria of categorias; track categoria.id) {
+                <option [value]="categoria.id"> {{categoria.descripcion}} </option>
+              }
+          </select>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label for="modeloInput" class="form-label fw-bold">Modelo:</label>
+            <input
+              type="text"
+              id="modeloInput"
+              class="form-control rounded-pill bg-light input-basic-100"
+              formControlName="modelo"
+            />
+          </div>
         </div>
-      </form>
-    </div>
-  </ng-template>
+        <div class="col">
+          <div class="mb-3">
+            <label for="precioInput" class="form-label fw-bold">Precio:</label>
+            <input
+              type="number"
+              id="precioInput"
+              class="form-control rounded-pill bg-light input-basic-100"
+              formControlName="precio"
+              placeholder="S/."
+            />
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="descripcionInput" class="form-label fw-bold">Descripción:</label>
+        <textarea
+          id="descripcionInput"
+          class="form-control rounded-4 bg-light input-basic-100"
+          rows="2"
+          formControlName="descripcion"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="imagenInput" class="form-label fw-bold">Imagen del producto:</label>
+        <input
+          type="file"
+          id="imagenInput"
+          class="form-control rounded-pill bg-light input-basic-100"
+          formControlName="imagen"
+        />
+      </div>
+      <div class="d-flex justify-content-center align-items-center gap-3 my-2">
+        <button type="button" class="btn-custom-red" (click)="modal.dismiss()">Cancelar</button>
+        <button type="submit" class="btn-custom-blue" [disabled]="formCreateProduct.invalid">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
   

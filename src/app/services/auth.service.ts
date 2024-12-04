@@ -70,13 +70,13 @@ export class AuthService {
     
     register(data: DataRegister) {
         return this.httpService
-        .post(this.auth_end_point+'/routes_person/register_person', {...data})
+        .post(this.auth_end_point+'/routes_person/register', {...data})
         .pipe(catchError(this.handleError));  
     }
 
     login(data: DataLogin) {
       return this.httpService
-      .post(this.auth_end_point+'/routes_person/login_person', {...data})
+      .post(this.auth_end_point+'/routes_person/login', {...data})
       .pipe(catchError(this.handleError));
     }  
   
