@@ -7,25 +7,39 @@ title="Ventas Directas"
         <div class="card rounded-4 p-3 border border-0">
             <div class="card-body">
                 <div class="mb-3">
-                    <h6 class="fw-bold">Consultar precio de un producto</h6>
+                    <h6 class="fw-bold mb-3">Consultar información de un producto</h6>
                     <div class="d-flex justify-content-between">
                         <div class="search-container w-100 me-3">
                             <div class="position-relative">
                                 <div class="position-absolute top-50 translate-middle-y px-3"><i class="text-secondary bi bi-search"></i></div>
-                                <input  class="input-search ps-5" type="text" placeholder="Buscar producto...">
+                                <input
+                                    class="input-search bg-custom-blue-soft ps-5"
+                                    type="text"
+                                    placeholder="Buscar producto..."
+                                    (input)="actualizarTerminoBusqueda($event)"
+                                >
                             </div>
                         </div>
-                        <button class="btn-custom-red">
+                        <button class="btn-custom-red" (click)="buscarProducto()">
                             <i class="fi fi-rr-search"></i>
                         </button>
                     </div>
                 </div>
                 <div class="linea mb-3"></div>
-                <div class="d-flex justify-content-between align-items-center bg-custom-blue-soft rounded-4 py-2 px-4">
-                    <img class="img-price" src="https://pngimg.com/d/computer_mouse_PNG7672.png" alt="">
-                    <span class="text-secondary fs-5">Mouse RedDragon</span>
-                    <span class="fw-bold">S/. 64.50</span>
-                </div>
+                @if (productosFiltrados.length === 0 || !terminoBusqueda) {
+                    <div class="text-center w-100">
+                        <span class="fw-bold">No hay resultados.</span>
+                    </div>
+                }
+                @else {
+                    @for (producto of productosFiltrados; track $index) {
+                        <div class="d-flex justify-content-between align-items-center bg-custom-blue-soft rounded-4 py-2 px-4 mb-2">
+                            <span class="fw-bold fs-6"> {{producto.id}} </span>
+                            <span class="fw-bold text-secondary fs-6"> {{producto.nombre}} </span>
+                            <span class="fw-bold">S/.{{producto.precio}} </span>
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
@@ -36,23 +50,24 @@ title="Ventas Directas"
                     <h4 class="fw-bold">Registrar venta directa</h4>
                     <div class="row d-flex align-items-center">
                         <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-2 text-center">
-                            <label for="codigoInput" class="form-label">Producto</label>
-                            <div class="search-container w-100 me-3 ">
-                                <div class="position-relative">
-                                    <div class="position-absolute top-50 translate-middle-y px-3"><i class="text-secondary bi bi-search"></i></div>
-                                    <input
-                                    class="input-search bg-custom-blue-soft ps-5"
-                                    type="text"
-                                    placeholder="Añadir código de producto...">
-                                </div>
-                            </div>
+                            <label for="selectProduct" class="form-label">Producto</label>
+                            <select
+                                id="productoSelect"
+                                class="form-select bg-custom-blue-soft input-basic-100"
+                                formControlName="producto"
+                                >
+                                <option value="" disabled selected>Selecciona un producto</option>
+                                @for (producto of productos; track producto.id) {
+                                    <option [value]="producto.id"> {{producto.nombre}} </option>
+                                }
+                            </select>
                         </div>
                         <div class="col-12 col-md-3 col-lg-12 col-xl-3 mb-3 text-center">
                             <label for="cantidadInput" class="form-label">Cantidad</label>
                             <input
                               type="number"
                               id="cantidadInput"
-                              class="form-control rounded-pill bg-light input-basic-pages"
+                              class="form-control rounded-pill bg-custom-blue-soft"
                               formControlName="cantidad"
                             />
                         </div>

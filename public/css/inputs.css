@@ -24,21 +24,19 @@
     outline: none;
     box-shadow: 0 0 0 0.2rem #14295565;
   }
-
-
-  .input-basic-100, .input-basic-pages {
-    border-radius: 1.6rem;
-    padding: 5px 15px;
-  }
-
+  
   .input-basic-100 {
     border: 1px solid #d7d7d7;
     background-color: #f5f6fa;
+    border-radius: 1.6rem;
+    padding: 5px 15px;
   }
 
   .input-basic-pages {
     border: 1px solid #d5d5d5;
     background-color: #eaf2f9;
+    border-radius: 1.6rem;
+    padding: 5px 15px;
   }
 
 

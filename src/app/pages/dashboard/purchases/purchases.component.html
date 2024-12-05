@@ -2,13 +2,132 @@
 icon_title="fi fi-rr-shopping-basket"
 title="Compras"
 />
-<div class="card rounded-4 border border-0 p-3">
+<div class="card rounded-4 border border-0 p-3 mb-4">
     <div class="card-body">
         <div class="mb-3">
             <h4 class="fw-bold">Registrar entrada de producto</h4>
-               
         </div>
         <div class="linea mb-3"></div>
-        
+        <form [formGroup]="formCreatePurchase" (ngSubmit)="createPurchase()">
+            
+            <div class="row mb-3">
+                <div class="col-12 mb-2 col-md-8 col-xl-4 mb-md-3">
+                    <label for="selectProduct" class="form-label">Producto</label>
+                    <select
+                        id="productoSelect"
+                        class="form-select rounded-pill input-basic-100"
+                        formControlName="producto"
+                        >
+                        <option value="" disabled selected>Selecciona un producto</option>
+                        @for (producto of productos; track producto.id) {
+                            <option [value]="producto.id"> {{producto.nombre}} </option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12 mb-2 col-md-4 col-xl-2">
+                    <label for="cantidadInput" class="form-label">Cantidad</label>
+                    <input
+                      type="number"
+                      id="cantidadInput"
+                      class="form-control bg-custom-blue-soft rounded-pill"
+                      formControlName="cantidad"
+                    />
+                    <span class="text-span-bold-small" [hidden]="formCreatePurchase.get('cantidad')?.valid || formCreatePurchase.get('cantidad')?.untouched">
+                        Sólo se permiten enteros
+                    </span>
+
+                </div>
+                <div class="col-12 mb-2 col-md-4 col-xl-2">
+                    <label for="precioCompraInput" class="form-label">Precio de compra</label>
+                    <input
+                      type="number"
+                      id="precioCompraInput"
+                      class="form-control rounded-pill bg-custom-blue-soft"
+                      formControlName="precio_unitario"
+                    />
+                </div>
+                <div class="col-12 col-md-8 col-xl-4">
+                    <label for="selectProveedor" class="form-label">Proveedor</label>
+                    <div class="container-button-custom">
+                        <div class="select-wrapper">
+                            <select
+                                id="proveedorSelect"
+                                formControlName="proveedor"
+                                >
+                                <option value="" disabled selected>Selecciona un proveedor</option>
+                                @for (proveedor of proveedores; track proveedor.id) {
+                                    <option [value]="proveedor.id"> {{proveedor.proveedor}} </option>
+                                }
+                            </select>
+                            <div class="select-arrow"></div>
+                        </div>
+                        <button type="button" class="add-button" onclick="openModal()">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="descripcionInput" class="form-label">Descripción</label>
+                <textarea
+                name="descripcion"
+                id="descripcionInput"
+                class="form-control bg-custom-blue-soft rounded-4"
+                formControlName="descripcion"
+                rows="2"
+                ></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn-custom-yellow" [disabled]="formCreatePurchase.invalid">
+                    Registrar entrada
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card rounded-4 border border-0 p-3">
+    <div class="card-body">
+        <div class="row mb-4 align-items-center g-3">
+            <!-- Barra de búsqueda -->
+            <div class="col-12 col-xl-5">
+                <div class="search-container">
+                    <div class="position-relative">
+                        <div class="position-absolute top-50 translate-middle-y px-3"><i class="text-secondary bi bi-search"></i></div>
+                        <input (input)="applyFilter($event)" class="input-search bg-custom-blue-soft ps-5" type="text" placeholder="Buscar compra...">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-5">
+                <div class="d-flex flex-column flex-sm-row gap-3">
+                    <div class="flex-grow-1">
+                        <label for="fechaDesde" class="form-label mb-1 fw-bold">Desde:</label>
+                        <input 
+                            id="fechaDesde"
+                            type="date" 
+                            class="form-control rounded-pill bg-custom-blue-soft" 
+                            placeholder="17/3/21">
+                    </div>
+                    <div class="flex-grow-1">
+                        <label for="fechaHasta" class="form-label mb-1 fw-bold">Hasta:</label>
+                        <input 
+                            id="fechaHasta"
+                            type="date" 
+                            class="form-control rounded-pill bg-custom-blue-soft" 
+                            placeholder="17/3/21">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-2">
+                <button class="btn-custom-yellow px-4 w-100">Buscar</button>
+            </div>
+        </div>
+        <div class="row">
+            <app-table
+                #tablePurchases
+                [columns]="columns"
+                [originalRows]="rows"
+                [columnMappings]="columnMappings"
+                [pageSize]="10"
+                [acciones]="false"
+            />
+        </div>
     </div>
 </div>

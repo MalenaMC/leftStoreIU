@@ -2,33 +2,31 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { catchError, Observable, throwError } from "rxjs";
 
-export interface DataProduct {
-    id?: number;
-	nombre: string;
-    categoriaId: string;
-    modelo: string;
-	precio: number;
-	descripcion: string;
-    img: string;
-    estado: boolean
+export interface DataPurchase {
+    productoId: string;
+    proveedorId: string;
+    cantidad: number;
+	precio_unitario: number;
+    descripcion: string;
 }
 
-export interface DataProductAll {
-    id: number;
-    codigo: string;
-    nombre: string;
-    categoria: string;
-    modelo: string;
-    precio: number;
+export interface DataPurchaseAll {
+    id?: number;
+	nombre: string;
+    proveedor: string;
+    fecha_hora: Date;
+    cantidad: number;
+    precio_unitario: number;
+	subtotal: number;
+	igv: number;
+    total: number;
     descripcion: string;
-    img: string;
-    estado: boolean;
 }
 
 @Injectable({
     providedIn: 'root'
 })
-export class ProductService {
+export class PurchaseService {
     private httpService = inject(HttpClient)
     private product_end_point = 'http://localhost:3000'
 
@@ -46,7 +44,13 @@ export class ProductService {
                 case "PRODUCT_NOT_FOUND":
                     errorMessage = error.error.error; // "Producto no encontrado"
                     break;
+                case "PROVIDER_NOT_FOUND":
+                    errorMessage = error.error.error; // "Producto no encontrado"
+                    break;
                 case "INVALID_DATA":
+                    errorMessage = error.error.error; // "Datos no válidos"
+                    break;
+                case "PRODUCT_HAS_PURCHASES":
                     errorMessage = error.error.error; // "Datos no válidos"
                     break;
                 default:
@@ -56,39 +60,17 @@ export class ProductService {
         }
         return throwError(() => new Error(errorMessage));
     }
-
     // Crear producto
-    createProduct(data: DataProduct) {
+    createPurchase(data: DataPurchase) {
         return this.httpService
-            .post(this.product_end_point + '/routes_product/register', { ...data })
+            .post(this.product_end_point + '/routes_compra/register', { ...data })
             .pipe(catchError(this.handleError));
     }
 
     // Obtener todos los productos
-    getAllProducts() {
+    getAllPurchases() {
         return this.httpService
-            .get<DataProductAll[]>(this.product_end_point + '/routes_product/get_all_products')
-            .pipe(catchError(this.handleError));
-    }
-
-    // Obtener un producto por su código
-    getProductById(id: number) {
-        return this.httpService
-          .get<DataProduct>(`${this.product_end_point}/routes_product/get_product/${id}`)
-          .pipe(catchError(this.handleError));
-      }
-
-    // Actualizar un producto
-    updateProduct(id: number, data: DataProduct) {
-        return this.httpService
-        .put(`${this.product_end_point}/routes_product/update/${id}`, { ...data })
-        .pipe(catchError(this.handleError));
-    }
-
-    // Eliminar un producto
-    deleteProduct(id: string) {
-        return this.httpService
-            .delete(`${this.product_end_point}/routes_product/delete/${id}`)
+            .get<DataPurchaseAll[]>(this.product_end_point + '/routes_compra/get_all_purchases')
             .pipe(catchError(this.handleError));
     }
 }

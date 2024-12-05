@@ -4,7 +4,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../../../../services/product.service';
 import { CategoryService, DataCategory } from '../../../../services/category.service';
-import { DataProvider, ProviderService } from '../../../../services/provider.service';
 
 @Component({
   selector: 'app-modal-crear-producto',
@@ -30,7 +29,6 @@ export class ModalCrearProductoComponent {
 	private notifycation = inject(ToastrService);
 	private productService = inject(ProductService);
 	private categoryService = inject(CategoryService);
-	private providerService = inject(ProviderService);
 
 	//CARGAR CATEGORIAS EN EL MODAL
 	categorias: DataCategory[] = []
@@ -66,6 +64,7 @@ export class ModalCrearProductoComponent {
 			this.notifycation.error('Debes completar todos los campos correctamente', 'Error');
 			return;
 		  }
+		  console.log(this.formCreateProduct.getRawValue())
 		  this.productService.createProduct({
 			nombre: this.formCreateProduct.get('nombre')?.value ?? '',
 			categoriaId: this.formCreateProduct.get('categoria')?.value ?? '',

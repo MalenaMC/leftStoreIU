@@ -1,0 +1,79 @@
+.container-button-custom {
+    display: flex;
+    width: 100%;
+}
+
+.select-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+select {
+    width: 100%;
+    height: 42px;
+    padding: 0 35px 0 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px 0 0 25px;
+    background-color: #eaf2f9;
+    appearance: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #666;
+    pointer-events: none;
+}
+
+.add-button {
+    width: 50px;
+    height: 42px;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    background-color: #FF9F43;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #f39539;
+}
+
+/* Eliminar el borde cuando el select está enfocado */
+select:focus {
+    outline: none;
+}
+
+.suggestions-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 9999;
+  }
+  
+  .suggestions-list li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .suggestions-list li:hover {
+    background-color: #f0f0f0;
+  }

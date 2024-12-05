@@ -33,7 +33,6 @@ export class ModalEditarProductoComponent {
   private notifycation = inject(ToastrService);
   private productService = inject(ProductService);
 	private categoryService = inject(CategoryService);
-	private providerService = inject(ProviderService);
   
   formEditProduct = this.toolsForm.group({
     'nombre': ['', [Validators.required]],

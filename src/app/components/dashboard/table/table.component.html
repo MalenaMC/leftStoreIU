@@ -7,7 +7,9 @@
 					@for (column of columns; track $index) {
 						<th>{{ column }}</th>
 					}
-					<th>ACCIONES</th>
+					@if (acciones) {
+						<th>ACCIONES</th>
+					}
 				</tr>
 			</thead>
 			<tbody>
@@ -33,21 +35,24 @@
 												: 'INACTIVO'
 										}}
 									</span>
-								} @else {
+								}
+								@else {
 									{{ row[columnMappings[column]] }}
 								}
 							</td>
 						}
-						<td>
-							<div class="btn-group me-2" role="group">
-								<button type="button" class="btn btn-bg-yellow pt-2" (click)="accionEditar(row)">
-									<i class="fi fi-rr-pencil"></i>
-								</button>
-								<button type="button" class="btn btn-bg-yellow pt-2" (click)="accionEliminar(row)">
-									<i class="fi fi-rr-trash"></i>
-								</button>
-							</div>
-						</td>
+						@if (acciones) {
+							<td>
+								<div class="btn-group me-2" role="group">
+									<button type="button" class="btn btn-bg-yellow pt-2" (click)="accionEditar(row)">
+										<i class="fi fi-rr-pencil"></i>
+									</button>
+									<button type="button" class="btn btn-bg-yellow pt-2" (click)="accionEliminar(row)">
+										<i class="fi fi-rr-trash"></i>
+									</button>
+								</div>
+							</td>
+						}
 					</tr>
 				}
 			</tbody>

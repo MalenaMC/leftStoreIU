@@ -1,7 +1,7 @@
 export const navbarData = [
     {
-        ruta: 'home',
-        name: 'Inicio',
+        ruta: 'dashboard',
+        name: 'Dashboard',
         icon: 'fi fi-rr-house-chimney'
       },
       {
@@ -23,5 +23,20 @@ export const navbarData = [
         ruta: 'purchases',
         name: 'Compras',
         icon: 'fi fi-rr-shopping-basket'
+      },
+      {
+        ruta: 'users',
+        name: 'Usuarios',
+        icon: 'fi fi-rr-users'
+      },
+      {
+        ruta: 'movements',
+        name: 'Movimientos',
+        icon: 'fi fi-rr-share'
+      },
+      {
+        ruta: 'management',
+        name: 'Gestión de tienda',
+        icon: 'fi fi-rr-settings'
       }
 ];

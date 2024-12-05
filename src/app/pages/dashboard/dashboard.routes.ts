@@ -14,11 +14,11 @@ export const dashboardRoutes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'home',
+                redirectTo: 'dashboard',
                 pathMatch: 'full'
             },
             {
-                path: 'home',
+                path: 'dashboard',
                 component: HomeComponent
             },
             {
