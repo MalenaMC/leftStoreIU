@@ -31,6 +31,9 @@
     border-radius: 1.6rem;
     padding: 5px 15px;
   }
+  .input-basic-100:disabled {
+    background-color: #c8ccdb !important;
+  }
 
   .input-basic-pages {
     border: 1px solid #d5d5d5;

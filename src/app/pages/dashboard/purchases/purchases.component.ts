@@ -116,7 +116,6 @@ export class PurchasesComponent {
       this.notifycation.error('Debes completar todos los campos correctamente', 'Error');
       return;
       }
-      console.log(this.formCreatePurchase.getRawValue())
       this.purchaseService.createPurchase({
       productoId: this.formCreatePurchase.get('producto')?.value ?? '',
       cantidad: Number(this.formCreatePurchase.get('cantidad')?.value) ?? 0,
@@ -156,6 +155,7 @@ export class PurchasesComponent {
       },
       error: (error) => {
         console.error('Error al cargar compras: ', error);
+        console.log(error)
       }
     });
   }

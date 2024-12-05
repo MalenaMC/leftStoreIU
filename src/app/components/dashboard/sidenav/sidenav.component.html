@@ -12,17 +12,30 @@
   </div>
   <ul class="sidenav-nav">
     @for (data of navData; track $index) {
+      @if (data.ruta === 'sales/direct' || 'sales/online') {
+        @if (data.name === 'Historial') {
+          <div class="linea mb-3"></div>
+          @if (collapsed) {
+            <h6 class="text-secondary fw-bold">Ventas</h6>
+          }
+        }
+      }
       <li class="sidenav-nav-item">
         <a class="sidenav-nav-link" [routerLink]="[data.ruta]"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}"
         >
-          <i class="sidenav-link-icon" [class]="data.icon"></i>
-            @if (collapsed) {
-              <span class="sidenav-link-text"> {{data.name}} </span>
-            }
-        </a>
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        @if (collapsed) {
+          <span class="sidenav-link-text"> {{data.name}} </span>
+        }
+      </a>
+      @if (data.ruta === 'sales/direct' || 'sales/online') {
+        @if (data.name === 'Ventas Online') {
+          <div class="linea mt-3"></div>
+        }
       }
-    </ul>
+    }
+  </ul>
     />
 </div>

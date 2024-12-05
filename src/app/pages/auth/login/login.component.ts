@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -12,6 +12,7 @@ import { AuthService } from '../../../services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
   //INJECCION DE HERRAMIENTAS
   private toolsForm = inject(FormBuilder);
   private notifycation = inject(ToastrService);
@@ -35,7 +36,7 @@ export class LoginComponent {
       next: (value: any) => {
         this.notifycation.success(`${value.message}, ${value.nombre} ${value.apellido_paterno}.`, 'Éxito')
         this.formLogin.reset();
-        this.router.navigateByUrl('/dashboard/home');
+        this.router.navigateByUrl('/pages/dashboard');
       },
       error: (error: Error) => {
           this.notifycation.error(error.message, 'Error');

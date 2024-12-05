@@ -10,6 +10,11 @@ export const navbarData = [
         icon: 'fi fi-rr-boxes'
       },
       {
+        ruta: 'sales/history',
+        name: 'Historial',
+        icon: 'fi fi-rr-list-check'
+      },
+      {
         ruta: 'sales/direct',
         name: 'Ventas Directas',
         icon: 'fi fi-rr-point-of-sale-bill'

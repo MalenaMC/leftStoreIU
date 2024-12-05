@@ -6,6 +6,7 @@ import { SalesComponent } from "./sales/sales.component";
 import { DirectComponent } from "./sales/direct/direct.component";
 import { OnlineComponent } from "./sales/online/online.component";
 import { PurchasesComponent } from "./purchases/purchases.component";
+import { SalesHistoryComponent } from "./sales/sales-history/sales-history.component";
 
 export const dashboardRoutes: Routes = [
     {
@@ -41,6 +42,10 @@ export const dashboardRoutes: Routes = [
                     {
                         path: 'online',
                         component: OnlineComponent
+                    },
+                    {
+                        path: 'history',
+                        component: SalesHistoryComponent
                     }
                 ]
             },

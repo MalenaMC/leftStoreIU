@@ -13,7 +13,7 @@ title="Ventas Directas"
                             <div class="position-relative">
                                 <div class="position-absolute top-50 translate-middle-y px-3"><i class="text-secondary bi bi-search"></i></div>
                                 <input
-                                    class="input-search bg-custom-blue-soft ps-5"
+                                    class="input-search bg-custom-blue-soft input-basic-100 ps-5"
                                     type="text"
                                     placeholder="Buscar producto..."
                                     (input)="actualizarTerminoBusqueda($event)"
@@ -47,33 +47,49 @@ title="Ventas Directas"
         <div class="card rounded-4 border border-0 p-3">
             <div class="card-body">
                 <div class="mb-3">
-                    <h4 class="fw-bold">Registrar venta directa</h4>
+                    <div class="row">
+                        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start mb-3">
+                            <h4 class="fw-bold">Registrar venta directa</h4>
+                        </div>
+                        <div class="col-12 col-md-6  d-flex justify-content-center justify-content-md-end mb-3">
+                            <button
+                                type="submit"
+                                id="activarFormulario"
+                                class="btn-custom-blue"
+                                (click)="openForm()"
+                                >Abrir formulario</button>
+                        </div>
+                    </div>
                     <div class="row d-flex align-items-center">
-                        <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-2 text-center">
-                            <label for="selectProduct" class="form-label">Producto</label>
-                            <select
+                        <form [formGroup]="formCreateSaleDetail" (ngSubmit)="createSaleDetail()">
+                            <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-2 text-center text-md-start">
+                                <label for="selectProduct" class="form-label">Producto</label>
+                                <select
                                 id="productoSelect"
-                                class="form-select bg-custom-blue-soft input-basic-100"
+                                class="form-select rounded-pill bg-custom-blue-soft input-basic-100"
                                 formControlName="producto"
+                                [disabled]="formDisabled"
                                 >
                                 <option value="" disabled selected>Selecciona un producto</option>
                                 @for (producto of productos; track producto.id) {
                                     <option [value]="producto.id"> {{producto.nombre}} </option>
                                 }
                             </select>
-                        </div>
-                        <div class="col-12 col-md-3 col-lg-12 col-xl-3 mb-3 text-center">
-                            <label for="cantidadInput" class="form-label">Cantidad</label>
-                            <input
-                              type="number"
-                              id="cantidadInput"
-                              class="form-control rounded-pill bg-custom-blue-soft"
-                              formControlName="cantidad"
-                            />
-                        </div>
-                        <div class="col-12 col-md-3 col-lg-12 col-xl-3 text-center">
-                            <button class="btn-custom-yellow ">Agregar</button>
-                        </div>
+                            </div>
+                            <div class="col-12 col-md-3 col-lg-12 col-xl-3 mb-3 text-center text-md-start">
+                                <label for="cantidadInput" class="form-label">Cantidad</label>
+                                <input
+                                  type="number"
+                                  id="cantidadInput"
+                                  class="form-control rounded-pill bg-custom-blue-soft input-basic-100"
+                                  formControlName="cantidad"
+                                  [disabled]="formDisabled"
+                                />
+                            </div>
+                            <div class="col-12 col-md-3 col-lg-12 col-xl-3 text-center text-md-start">
+                                <button type="submit" class="btn-custom-yellow ">Agregar</button>
+                            </div>
+                        </form>
                     </div>      
                 </div>
                 <div class="linea mb-3"></div>

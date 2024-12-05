@@ -64,7 +64,6 @@ export class ModalCrearProductoComponent {
 			this.notifycation.error('Debes completar todos los campos correctamente', 'Error');
 			return;
 		  }
-		  console.log(this.formCreateProduct.getRawValue())
 		  this.productService.createProduct({
 			nombre: this.formCreateProduct.get('nombre')?.value ?? '',
 			categoriaId: this.formCreateProduct.get('categoria')?.value ?? '',
